@@ -6,7 +6,7 @@ function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 48.778761, lng: 9.179869},
         zoom: 17,
-        styles: styles
+        styles: styles // this is defined in map-styles.js for code cleanness
     });
 
     var schlossplatz = {lat: 48.778761, lng: 9.179869};
