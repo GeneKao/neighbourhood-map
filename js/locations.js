@@ -1,8 +1,5 @@
-var locations = [
-    {title: 'Park Ave Penthouse', location: {lat: 40.7713024, lng: -73.9632393}},
-    {title: 'Chelsea Loft', location: {lat: 40.7444883, lng: -73.9949465}},
-    {title: 'Union Square Open Floor Plan', location: {lat: 40.7347062, lng: -73.9895759}},
-    {title: 'East Village Hip Studio', location: {lat: 40.7281777, lng: -73.984377}},
-    {title: 'TriBeCa Artsy Bachelor Pad', location: {lat: 40.7195264, lng: -74.0089934}},
-    {title: 'Chinatown Homey Space', location: {lat: 40.7180628, lng: -73.9961237}}
+let restaurants = [
+    {title: 'Japanese Restaurant Kurose', location: {lat: 48.7732258, lng: 9.1669856}},
+    {title: 'Mandu Restaurant', location: {lat: 48.778022, lng: 9.168204}},
+    {title: 'Valle', location: {lat: 48.782323, lng: 9.175981}}
 ];
