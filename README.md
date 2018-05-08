@@ -15,7 +15,7 @@ using Google Maps API together with Foursquare API. The application is responsiv
 has a hamburger icon on the top left corner, which expends a menu bar for extra functionality to search
 and author's info. You will see street panorama view by clicking the list on the menu bar. 
 While clicking the marker on the map, you will see general information provided by 
-FourSquare and an extra comment from me. 
+Foursquare and an extra comment from me. 
 
 ### What you need to know to read the code. 
 - JavaScript

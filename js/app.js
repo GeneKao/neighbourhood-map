@@ -51,28 +51,42 @@ function initMap() {
                 Foursquare_CLIENT_ID + Foursquare_CLIENT_SECRET + '&v=20180507',
             async: true,
             success: function(data) {
-                // console.log(data.response.venue.name);
-                // console.log(data.response);
-
+                console.log(data.response.venue.name);
+                console.log(data.response);
                 function contentFormat(venue) {
-                    // let image = venue.bestPhoto.prefix + venue.bestPhoto.height / 4 + "x" + venue.bestPhoto.width / 4 + venue.bestPhoto.suffix;
-                    let image = venue.bestPhoto.prefix + "240x240" + venue.bestPhoto.suffix;
-                    // console.log(image);
-                    return ('<div>' +
-                            '<h4>' +
-                            venue.name +
-                            '</h4>' + '<hr>' +
-                            '<p>' +
-                            "<b>Rating: </b>" + venue.rating + '<br>' +
-                            "<b>Category: </b>" + venue.categories[0].name + '<br>' +
-                            "<b>Foursquare link: </b>" + `<a href="${venue.shortUrl}">${venue.shortUrl}</a>` + '<br>' + '<hr>' +
-                            "<b>Gene's comment: </b>" + '<br>' + restaurants[i].description + '<br>' +
-                            '</p>' + '<hr>' +
-                            `<img class=img-thumbnail alt="${venue.name}" src="${image}">` +
-                            '</div>');
+                    if (venue.bestPhoto) {
+                        let image = venue.bestPhoto.prefix + "240x240" + venue.bestPhoto.suffix;
+                        return ('<div>' +
+                                '<h4>' +
+                                venue.name +
+                                '</h4>' + '<hr>' +
+                                '<p>' +
+                                "<b>Rating: </b>" + venue.rating + '<br>' +
+                                "<b>Category: </b>" + venue.categories[0].name + '<br>' +
+                                "<b>Foursquare link: </b>" + `<a href="${venue.shortUrl}">${venue.shortUrl}</a>` +
+                                '<br>' + '<hr>' +
+                                "<b>Gene's comment: </b>" + '<br>' + restaurants[i].description + '<br>' +
+                                '</p>' + '<hr>' +
+                                `<img class=img-thumbnail alt="${venue.name}" src="${image}">` +
+                                '</div>');
+                    }
+                    else {
+                        return ('<div>' +
+                                '<h4>' +
+                                venue.name +
+                                '</h4>' + '<hr>' +
+                                '<p>' +
+                                "<b>Rating: </b>" + venue.rating + '<br>' +
+                                "<b>Category: </b>" + venue.categories[0].name + '<br>' +
+                                "<b>Foursquare link: </b>" + `<a href="${venue.shortUrl}">${venue.shortUrl}</a>`+
+                                '<br>' + '<hr>' +
+                                "<b>Gene's comment: </b>" + '<br>' + restaurants[i].description + '<br>' +
+                                '</p>' + '<hr>' +
+                                '</div>');
+                    }
                 }
-
                 content = contentFormat(data.response.venue);
+
             },
             error: function(data) {
                 alert("Cannot load data from foursquare! Something goes wrong! Help!");
