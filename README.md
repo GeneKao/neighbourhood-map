@@ -52,5 +52,11 @@ at the end of [index.html](./index.html).
 Replace **YOUR_KEY_HERE** with your own API key.  
 
 
+### Code reference
 
+Some starter code was from the Udacity's course 
+[Udacity Google Maps APIs by Google](https://www.udacity.com/course/google-maps-apis--ud864) 
+and [repo](https://github.com/udacity/ud864). 
 
+For the basic layout, my HTML and CSS refer some part of the code from 
+[this example](https://embed.plnkr.co/plunk/cuoEbv). 
