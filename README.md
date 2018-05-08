@@ -33,6 +33,21 @@ For HTML, CSS and JavaScript code style,
 [Udacity Frontend Nanodegree Style Guide](http://udacity.github.io/frontend-nanodegree-styleguide/javascript.html)
 is used. 
 
+### Files structure
+
+```
+.
+├── README.md
+├── css
+│   └── style.css
+├── index.html
+└── js
+    ├── app.js
+    ├── locations.js
+    ├── map-styles.js
+    └── utils.js
+```
+
 ### To run the code 
 
 ``` shell
@@ -42,14 +57,31 @@ $ python3 -m http.server #(Or simply opne index.html in a web browser.)
 ```
 
 After cloning the repo, you will have to insert your own Google Map API key manually 
-at the end of [index.html](./index.html).  
+at the end of [index.html](./index.html).
 
 ``` javascript
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry&key=YOUR_KEY_HERE&v=3&callback=initMap">
 </script>
 ```
-Replace **YOUR_KEY_HERE** with your own API key.  
+Replace **YOUR_KEY_HERE** with your own API key.
+
+
+### Screenshots
+
+![0_overview](/screenshots/0_overview.png)
+
+---------------------------------------
+
+![1_click](/screenshots/1_click.png)
+
+---------------------------------------
+
+![2_search](/screenshots/2_search.png)
+
+---------------------------------------
+
+![3_phone](/screenshots/3_phone.png)
 
 
 ### Code reference
@@ -60,3 +92,10 @@ and [repo](https://github.com/udacity/ud864).
 
 For the basic layout, my HTML and CSS refer some part of the code from 
 [this example](https://embed.plnkr.co/plunk/cuoEbv). 
+
+Map style using [Neil's Chef lobster
+theme](https://snazzymaps.com/style/141864/chef-lobster) from [SNAZZY
+MAPS](https://snazzymaps.com/). You can also change style simply download any
+template and replace my setting in [map-styles.js](js/map-styles.js). 
+
+    
