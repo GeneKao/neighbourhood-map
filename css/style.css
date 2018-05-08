@@ -1,36 +1,82 @@
+/* Styles go here */
+/* Reference: https://embed.plnkr.co/plunk/cuoEbv */
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css);
+
 html, body {
-  font-family: Arial, sans-serif;
   height: 100%;
-  width: 100%;
   margin: 0;
   padding: 0;
 }
 #map {
   position: absolute;
-  height: 100%;
+  top: 40px;
+  left: 0;
+  bottom:1.5em;
+  z-index: 200;
   width: 100%;
-  right: 0px;
-  /* bottom:0px; */
-  /* height: 100%; */
-  /* left: 20%; */
-  /* position: absolute; */
-  /* right: 0px; */
+  background: gray;
 }
-.options-box {
-  background: #fff;
-  border: 1px solid #999;
-  border-radius: 3px;
-  height: 100%;
-  line-height: 35px;
-  padding: 10px 10px 30px 10px;
-  text-align: left;
-  width: 38%;
+#pano {
+  width: 200px;
+  height: 200px;
 }
-#hide-listings, #show-listings {
-  width: 48%;
+/* This disable the bootstrap modal fading effect */
+.modal-backdrop {
+  background: none;
+}
+.header {
+  background-color: white;
+  left: 0;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+.navbar {
+  z-index: 9999;
 }
 .navbar-title {
-    margin: auto;
-    width: 50%;
-    padding: 10px;
+  margin: auto;
+  width: 80%;
+}
+.mh1 {
+  padding:.5rem .25rem;
+  text-align: left;
+}
+.mg1 {
+  padding:0;
+}
+.mg1 > button {
+  padding: .25rem .5rem;
+  font-size: .8rem;
+}
+.modal.left .modal-dialog {
+  position: absolute;
+  top: 40px;
+  bottom: 1.5em;
+  margin: 0;
+  width: 200px;
+  -webkit-transform: translate3d(0%, 0, 0);
+  -ms-transform: translate3d(0%, 0, 0);
+  -o-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+}
+.modal.left .modal-content {
+  height: 100%;
+  overflow-y: scroll;
+}
+.modal.left .modal-body {
+  padding: 0px;
+}
+.modal.left.fade .modal-dialog{
+  left: -200px;
+  -webkit-transition: opacity 0.3s linear, left 300ms ease-out;
+  -moz-transition: opacity 0.3s linear, left 300ms ease-out;
+  -o-transition: opacity 0.3s linear, left 300ms ease-out;
+  transition: opacity 0.3s linear, left 300ms ease-out;
+}
+.modal.left.fade.show .modal-dialog{
+  left: 0;
 }

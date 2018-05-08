@@ -1,15 +1,49 @@
 // Seperate the functions with the main app file.
 
-function populateInfoWindow(marker, infowindow) {
+function populateInfoWindow(marker, infowindow, content) {
+
     // Check to make sure the infowindow is not already opened on this marker.
     if (infowindow.marker != marker) {
+        // Clean the infowindow first.
+        infowindow.setContent('');
+        // Set to this marker.
         infowindow.marker = marker;
-        infowindow.setContent('<div>' + marker.title + '</div>');
-        infowindow.open(map, marker);
+
+        if (content) {
+            infowindow.setContent(content);
+        } else {
+            let streetViewService = new google.maps.StreetViewService();
+            let radius = 50;
+            function getStreetView(data, status) {
+                if (status == google.maps.StreetViewStatus.OK) {
+                    let nearStreetViewLocation = data.location.latLng;
+                    let heading = google.maps.geometry.spherical.computeHeading(
+                        nearStreetViewLocation, marker.position);
+
+                    infowindow.setContent('<div>' + '<h6>' + marker.title + '</h6>' +  '<hr>' + '</div><div id="pano"></div>');
+                    let panoramaOptions = {
+                        position: nearStreetViewLocation,
+                        pov: {
+                            heading: heading,
+                            pitch: 30
+                        }
+                    };
+                    let panorama = new google.maps.StreetViewPanorama(
+                        document.getElementById('pano'), panoramaOptions);
+                } else {
+                    infowindow.setContent('<div>' + marker.title + '</div>' +
+                                          '<div>No Street View Found</div>');
+                }
+            }
+            streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
+        }
+
         // Make sure the marker property is cleared if the infowindow is closed.
         infowindow.addListener('closeclick',function(){
-            infowindow.setMarker = null;
+            infowindow.marker = null;
         });
+
+        infowindow.open(map, marker);
     }
 }
 

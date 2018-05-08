@@ -7,14 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <meta name="description" content="Neighbourhood map using mvc design pattern and google map api">
-    <meta name="keywords"
-          content="GeneKao, map, full-stack, frontend, web development, HTML, CSS, JS, JavaScript">
+    <meta name="keywords" content="GeneKao, map, full-stack, frontend, web development, HTML, CSS, JS, JavaScript">
     <meta name="author" content="Gene Ting-Chun Kao">
 
     <title>Map</title>
 
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+          crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 
   </head>
@@ -22,26 +23,75 @@
 
   <body>
 
-    <div class="container-fluid">
+    <nav class="navbar navbar-fixed-top navbar-light p-0">
+      <div class="btn-toolbar mr-auto header" role="toolbar">
+        <button type="button" class="btn btn-default" data-toggle="modal"
+                data-target="#myModal"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></button>
+        <a class="nav-link navbar-title"><b>Gene's Restaurant List - Stuttgart</b></a>
+      </div>
+    </nav>
+    <!-- Modal Sidebar -->
+    <div class="modal left fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div id="SideMenu">
+            <div class="card">
 
-      <nav class="navbar fixed-top navbar-dark bg-dark">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand navbar-title" href="#">Stuttgart Nice Restaurants</a>
-      </nav>
+              <div class="card-header btn btn-default mh1" data-toggle="collapse" data-target="#Info" data-parent="#SideMenu">
+                <i class="fa fa-user-secret fa-fw"></i>&nbsp;Info
+              </div>
+
+              <div class="navbar-title collapse show" id="Info">
+                <p>A restaurant list is provided by <a href="https://www.linkedin.com/in/kaogene/">Gene Kao</a>,
+                  please contact him if you have any question. See the source code
+                  <a href="https://github.com/GeneKao/neighbourhood-map">here</a>.</p>
+              </div>
+
+              <div class="input-group input-group-sm">
+                <form action="javascript:void(0);">
+                  <input id="text-filter" type="text" class="form-control" style="border:1px solid #adadad;"
+                         placeholder="Search..." data-bind="textInput: query, event: {keyup: searchRestaurants}">
+                </form>
+              </div>
+
+              <div class="card-header btn btn-default mh1" data-toggle="collapse" data-target="#Restaurant" data-parent="#SideMenu">
+                <i class="fa fa-cutlery fa-fw"></i>&nbsp;Restaurants
+              </div>
+
+              <div id="Restaurant" class="collapse show">
+                <ul class="card-block list-group mg1" data-parent="#SidMenu" data-bind="foreach: restaurants">
+                  <li>
+                    <a href="#" class ="list-group-item list-group-item-action"
+                       data-bind="text: title, event: {mouseover: $parent.highlight, mouseout: $parent.lowlight}, click: $parent.selectRestaurant">
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
     </div>
 
     <div id="map"></div>
-    </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
 
-    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+            integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
+
+    <script type='text/javascript'
+            src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
 
     <script src="js/map-styles.js"></script>
     <script src="js/locations.js"></script>
@@ -49,7 +99,7 @@
     <script src="js/app.js"></script>
 
     <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBu61KxoB5Tl-k1UHTaTexkdHhQDui9Lw&v=3&callback=initMap">
+            src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry&key=AIzaSyDBu61KxoB5Tl-k1UHTaTexkdHhQDui9Lw&v=3&callback=initMap">
     </script>
 
 
