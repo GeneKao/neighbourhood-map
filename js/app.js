@@ -38,11 +38,11 @@ function initMap() {
         // Push the marker to our array of markers.
         markers.push(marker);
 
-
         let content;
         let Foursquare_CLIENT_ID = '&client_id=QTLWAELP5HATQ5S1P3OSVKXBXLJZ0UCGI1QXFN35GJFUUXLM';
         let Foursquare_CLIENT_SECRET = '&client_secret=UAMIKPK3GQO5KXGQBE5YIPKSZAKC5WOZN32WJMUZGYXJGRDU';
 
+        // AJAX call to the foursquare api.
         $.ajax({
             type: "GET",
             dataType: 'json',
@@ -51,9 +51,11 @@ function initMap() {
                 Foursquare_CLIENT_ID + Foursquare_CLIENT_SECRET + '&v=20180507',
             async: true,
             success: function(data) {
-                console.log(data.response.venue.name);
-                console.log(data.response);
+                // console.log(data.response.venue.name);
+                // console.log(data.response);
                 function contentFormat(venue) {
+
+                    // Two conditions here, response has photos or not.
                     if (venue.bestPhoto) {
                         let image = venue.bestPhoto.prefix + "240x240" + venue.bestPhoto.suffix;
                         return ('<div>' +
@@ -93,10 +95,11 @@ function initMap() {
             }
         });
 
-
+        // highlight the marker when mouse hover.
         marker.addListener('mouseover', function() {
             this.setIcon(highlightIcon);
         });
+        // lowlight the marker when mouse goes away.
         marker.addListener('mouseout', function() {
             this.setIcon(defaultIcon);
         });
@@ -114,16 +117,18 @@ function initMap() {
     map.fitBounds(bounds);
 
     ko.applyBindings(new ViewModel());
-
-
 }
 
+// My ViewModel and using KnockoutJS.
 let ViewModel = function() {
     let self = this;
 
+    // Restaurant as a list.
     this.restaurants = ko.observableArray([]);
+    // Input string to query.
     this.query = ko.observable('');
 
+    // Search function.
     this.searchRestaurants = function() {
         for (let i = 0; i < markers.length; i++) {
             let marker = markers[i];
@@ -137,12 +142,14 @@ let ViewModel = function() {
         return true;
     };
 
+    // Initially put all restaurants in the list and show them.
     (function() {
         markers.forEach(function(restaurant) {
             self.restaurants.push(restaurant);
         });
     })();
 
+    // Show InfoWindow while selecting a restaurant.
     this.selectRestaurant = function(restaurant) {
         let center = markers[restaurant.id].getPosition();
         let lat = Number(center.lat());
@@ -154,10 +161,10 @@ let ViewModel = function() {
         populateInfoWindow(markers[restaurant.id], largeInfowindow);
     };
 
+    // Highlight or lowlight the marker whiling selecting list in the menu.
     this.highlight = function(restaurant) {
         markers[restaurant.id].setIcon(highlightIcon);
     };
-
     this.lowlight = function(restaurant) {
         markers[restaurant.id].setIcon(defaultIcon);
     };

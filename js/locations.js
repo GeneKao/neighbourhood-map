@@ -1,3 +1,5 @@
+// All restaurants information is here.
+// id was manually inserted from foursquare api venue search. This hopefully can be improved in the future.
 let restaurants = [
     { title: 'Japanese Restaurant Kurose',
       location: {lat: 48.7732258, lng: 9.1669856},

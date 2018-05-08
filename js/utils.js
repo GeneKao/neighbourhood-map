@@ -9,6 +9,7 @@ function populateInfoWindow(marker, infowindow, content) {
         // Set to this marker.
         infowindow.marker = marker;
 
+        // if provide content render it, otherwise render street view.
         if (content) {
             infowindow.setContent(content);
         } else {
@@ -52,6 +53,7 @@ function populateInfoWindow(marker, infowindow, content) {
     }
 }
 
+// To make customised marker with different colours.
 function makeMarkerIcon(markerColor) {
     var markerImage = new google.maps.MarkerImage(
         'http://chart.googleapis.com/chart?chst=d_map_spin&chld=1.15|0|'+ markerColor +
@@ -63,6 +65,7 @@ function makeMarkerIcon(markerColor) {
     return markerImage;
 }
 
+// Marker bouncing animation.
 function toggleBounce(marker) {
     if (marker.getAnimation() !== null) {
         marker.setAnimation(null);
