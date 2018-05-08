@@ -27,6 +27,11 @@ FourSquare and an extra comment from me.
 - [Google Maps API](https://developers.google.com/maps/documentation/)
 - [Foursquare API](https://developer.foursquare.com/)
 
+### Code style
+
+For HTML, CSS and JavaScript code style, 
+[Udacity Frontend Nanodegree Style Guide](http://udacity.github.io/frontend-nanodegree-styleguide/javascript.html)
+is used. 
 
 ### To run the code 
 
