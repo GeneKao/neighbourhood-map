@@ -24,11 +24,11 @@ let restaurants = [
       id: "4b53237ef964a520039027e3",
       description: "One of my favourite coffee shop in Stuttgart. "
     },
-    { title: 'Pukkis Thailändischer Lieferservice',
-      location: {lat: 48.772642, lng: 9.183031},
-      id: "57a52e90498ea30d8f020b0b",
-      description: "The food is great in this Thai restaurant, and the owner is nice too. "
-    },
+    // { title: 'Pukkis Thailändischer Lieferservice',
+    //   location: {lat: 48.772642, lng: 9.183031},
+    //   id: "57a52e90498ea30d8f020b0b",
+    //   description: "The food is great in this Thai restaurant, and the owner is nice too. "
+    // },
     { title: 'Tay Ho',
       location: {lat: 48.774472, lng: 9.179051},
       id: "4b7da6d7f964a52056cc2fe3",
