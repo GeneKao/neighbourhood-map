@@ -81,7 +81,7 @@ Replace **YOUR_KEY_HERE** with your own API key.
 
 ---------------------------------------
 
-![3_phone](/screenshots/3_phone.png)
+<img src="/screenshots/3_phone.png" width="320" />
 
 
 ### Code reference
