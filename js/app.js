@@ -24,6 +24,7 @@ function initMap() {
         // Get the position from the location array.
         let position = restaurants[i].location;
         let title = restaurants[i].title;
+        let description = restaurants[i].description;
         // Create a marker per location, and put into markers array.
         let marker = new google.maps.Marker({
             map: map,
@@ -31,7 +32,8 @@ function initMap() {
             title: title,
             animation: google.maps.Animation.DROP,
             icon: defaultIcon,
-            id: i
+            id: i,
+            description: description
         });
         // Push the marker to our array of markers.
         markers.push(marker);
@@ -71,7 +73,6 @@ function initMap() {
                 }
 
                 content = contentFormat(data.response.venue);
-
             },
             error: function(data) {
                 alert("Cannot load data from foursquare! Something goes wrong! Help!");

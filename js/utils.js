@@ -20,7 +20,9 @@ function populateInfoWindow(marker, infowindow, content) {
                     let heading = google.maps.geometry.spherical.computeHeading(
                         nearStreetViewLocation, marker.position);
 
-                    infowindow.setContent('<div>' + '<h6>' + marker.title + '</h6>' +  '<hr>' + '</div><div id="pano"></div>');
+                    infowindow.setContent('<div>' + '<h6>' + marker.title + '</h6>' + '<hr>' +
+                        marker.description + '<hr>' +
+                        '</div><div id="pano"></div>');
                     let panoramaOptions = {
                         position: nearStreetViewLocation,
                         pov: {
@@ -31,7 +33,10 @@ function populateInfoWindow(marker, infowindow, content) {
                     let panorama = new google.maps.StreetViewPanorama(
                         document.getElementById('pano'), panoramaOptions);
                 } else {
-                    infowindow.setContent('<div>' + marker.title + '</div>' +
+                    infowindow.setContent('<div>' +
+                                          marker.title + '<hr>' +
+                                          marker.description + '<hr>' +
+                                          '</div>' +
                                           '<div>No Street View Found</div>');
                 }
             }
