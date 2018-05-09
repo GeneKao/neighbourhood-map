@@ -39,8 +39,8 @@ function initMap() {
         markers.push(marker);
 
         let content;
-        let Foursquare_CLIENT_ID = '&client_id=QTLWAELP5HATQ5S1P3OSVKXBXLJZ0UCGI1QXFN35GJFUUXLM';
-        let Foursquare_CLIENT_SECRET = '&client_secret=UAMIKPK3GQO5KXGQBE5YIPKSZAKC5WOZN32WJMUZGYXJGRDU';
+        let Foursquare_CLIENT_ID = '&client_id=DBHFVI1EEVJ1SIMQ0M0QZJRXCUVDWE3FEHGRJPLWX2K45OQU';
+        let Foursquare_CLIENT_SECRET = '&client_secret=LSFMOKIMDNV3SN1V5DPGMZQTNPDB4QQKOY24FACZYAUI3LIR';
 
         // AJAX call to the foursquare api.
         $.ajax({
@@ -91,7 +91,9 @@ function initMap() {
 
             },
             error: function(data) {
-                alert("Cannot load data from foursquare! Something goes wrong! Help!");
+                // alert("Cannot load data from foursquare! Something goes wrong! Help!");
+                alert("Cannot load data from foursquare! I am using the free option... " +
+                    "Probably exceeding daily limit. Come back tomorrow. ");
             }
         });
 
