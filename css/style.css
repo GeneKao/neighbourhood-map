@@ -1,7 +1,9 @@
 /* Styles go here */
 /* Reference: https://embed.plnkr.co/plunk/cuoEbv */
 
-@import url(//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css);
+/*About CDN link reference:
+https://stackoverflow.com/questions/25814476/bootstrap-and-font-awesome-latest-cdn-link*/
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css);
 
 html, body {
   height: 100%;
