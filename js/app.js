@@ -93,7 +93,7 @@ function initMap() {
             error: function(data) {
                 // alert("Cannot load data from foursquare! Something goes wrong! Help!");
                 alert("Cannot load data from foursquare! I am using the free option... " +
-                    "Probably exceeding daily limit. Come back tomorrow. ");
+                      "Probably exceeding daily limit. Come back tomorrow. ");
             }
         });
 
@@ -135,9 +135,13 @@ let ViewModel = function() {
         for (let i = 0; i < markers.length; i++) {
             let marker = markers[i];
             if (marker.title.toUpperCase().indexOf(self.query().toUpperCase()) > -1 ) {
-                if (self.restaurants.indexOf(marker) < 0) { self.restaurants.push(marker); }
+                if (self.restaurants.indexOf(marker) < 0) {
+                    self.restaurants.push(marker);
+                    marker.setMap(map);
+                }
             } else {
                 self.restaurants.remove(marker);
+                marker.setMap(null);
             }
 
         }
@@ -170,5 +174,6 @@ let ViewModel = function() {
     this.lowlight = function(restaurant) {
         markers[restaurant.id].setIcon(defaultIcon);
     };
+
 
 };
