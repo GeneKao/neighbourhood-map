@@ -69,6 +69,14 @@ html, body {
   height: 100%;
   overflow-y: scroll;
 }
+/* Display the bar only when screen is large enough. */
+@media only screen and (max-device-width: 768px) {
+  .modal.left .modal-content {
+    height: 100%;
+    width: 150px;
+    overflow-y: scroll;
+  }
+}
 .modal.left .modal-body {
   padding: 0px;
 }
