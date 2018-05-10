@@ -1,5 +1,6 @@
-/*jshint esversion: 6 */
-/*global google, map, marker, infowindow*/
+/* jshint esversion: 6 */
+/* global google, map, infowindow */
+/* exported populateInfoWindow, infowindow, makeMarkerIcon, toggleBounce */
 
 // Seperate the functions with the main app file.
 
@@ -19,7 +20,34 @@ function populateInfoWindow(marker, infowindow, content) {
             let streetViewService = new google.maps.StreetViewService();
             let radius = 50;
 
-            streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
+            streetViewService.getPanoramaByLocation(marker.position, radius, function(data, status) {
+                if (status == google.maps.StreetViewStatus.OK) {
+                    let nearStreetViewLocation = data.location.latLng;
+                    let heading = google.maps.geometry.spherical.computeHeading(
+                        nearStreetViewLocation, marker.position);
+
+                    infowindow.setContent('<div>' + '<h6>' + marker.title +
+                                          '</h6>' + '<hr>' +
+                                          marker.description + '<hr>' +
+                                          '</div><div id="pano"></div>');
+                    let panoramaOptions = {
+                        position: nearStreetViewLocation,
+                        pov: {
+                            heading: heading,
+                            pitch: 30
+                        }
+                    };
+                    let panorama = new google.maps.StreetViewPanorama(
+                        document.getElementById('pano'), panoramaOptions);
+                    console.log(panorama);
+                } else {
+                    infowindow.setContent('<div>' +
+                                          marker.title + '<hr>' +
+                                          marker.description + '<hr>' +
+                                          '</div>' +
+                                          '<div>No Street View Found</div>');
+                }
+            });
         }
 
         // Make sure the marker property is cleared if the infowindow is closed.
@@ -28,33 +56,6 @@ function populateInfoWindow(marker, infowindow, content) {
         });
 
         infowindow.open(map, marker);
-    }
-}
-
-function getStreetView(data, status) {
-    if (status == google.maps.StreetViewStatus.OK) {
-        let nearStreetViewLocation = data.location.latLng;
-        let heading = google.maps.geometry.spherical.computeHeading(
-            nearStreetViewLocation, marker.position);
-
-        infowindow.setContent('<div>' + '<h6>' + marker.title + '</h6>' + '<hr>' +
-            marker.description + '<hr>' +
-            '</div><div id="pano"></div>');
-        let panoramaOptions = {
-            position: nearStreetViewLocation,
-            pov: {
-                heading: heading,
-                pitch: 30
-            }
-        };
-        let panorama = new google.maps.StreetViewPanorama(
-            document.getElementById('pano'), panoramaOptions);
-    } else {
-        infowindow.setContent('<div>' +
-            marker.title + '<hr>' +
-            marker.description + '<hr>' +
-            '</div>' +
-            '<div>No Street View Found</div>');
     }
 }
 

@@ -1,5 +1,7 @@
-/*jshint esversion: 6 */
-/*global google, styles, makeMarkerIcon, restaurants, $, toggleBounce, populateInfoWindow, ko*/
+/* jshint esversion: 6 */
+/* global google, styles, makeMarkerIcon, restaurants, $, toggleBounce, populateInfoWindow, ko */
+/* exported gm_authFailure, initMap */
+/* jshint loopfunc: true */
 
 let map;
 let markers = [];
