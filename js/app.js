@@ -6,8 +6,13 @@ let markers = [];
 let defaultIcon, highlightIcon;
 let largeInfowindow;
 
-function initMap() {
+// Error handling for goolge map.
+// https://developers.google.com/maps/documentation/javascript/events#auth-errors
+function gm_authFailure() {
+    alert("Google map  error. Try to reload the page. If you download my example, don't forget to use your own google maps api keys. ");
+}
 
+function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: 48.778761, lng: 9.179869},
         zoom: 15,
