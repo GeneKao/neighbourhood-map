@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 // map style using https://snazzymaps.com/style/141864/chef-lobster
 let styles = [
     {

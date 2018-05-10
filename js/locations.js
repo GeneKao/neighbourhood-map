@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 // All restaurants information is here.
 // id was manually inserted from foursquare api venue search. This hopefully can be improved in the future.
 let restaurants = [
@@ -16,36 +18,36 @@ let restaurants = [
       id: "4b7c3749f964a52008852fe3",
       description: "My favourite italian restaurant in Stuttgart. They have really nice seadfood pasta and cheese pasta with truffle. "
     },
-    { title: 'Sichuan China Restaurant',
-      location: {lat: 48.774839, lng: 9.154952},
-      id: "55c76b12498eff6d62ae767e",
-      description: "Delicious Sichuan spicy food. "
-    },
-    { title: 'Café Seyffer´s',
-      location: {lat: 48.773828, lng: 9.152580},
-      id: "4b53237ef964a520039027e3",
-      description: "One of my favourite coffee shop in Stuttgart. "
-    },
-    { title: 'Pukkis Thailändischer Lieferservice',
-      location: {lat: 48.772642, lng: 9.183031},
-      id: "5315c57c498ed34a02cade49",
-      description: "The food is great in this Thai restaurant, and the owner is nice too. "
-    },
-    { title: 'Tay Ho',
-      location: {lat: 48.774472, lng: 9.179051},
-      id: "4b7da6d7f964a52056cc2fe3",
-      description: "Very good deal of vietnamese food, my favourite vietnamese restaurant in Stuttgart. "
-    },
-    { title: 'Die Metzgerei',
-      location: {lat: 48.774247, lng: 9.155906},
-      id: "576c3580498e6dab9fac53ba",
-      description: "They have very nice environment, and they also have very delicious bagels. "
-    },
-    { title: 'Konditorei Patisserie Meister Lampe',
-      location: {lat: 48.774668, lng: 9.149445},
-      id: "50b62b49e4b033ea1fcbd45e",
-      description: "My favourite Japanese cake shop in Stuttgart! They sell the best cake in Stuttgart! "
-    },
+    // { title: 'Sichuan China Restaurant',
+    //   location: {lat: 48.774839, lng: 9.154952},
+    //   id: "55c76b12498eff6d62ae767e",
+    //   description: "Delicious Sichuan spicy food. "
+    // },
+    // { title: 'Café Seyffer´s',
+    //   location: {lat: 48.773828, lng: 9.152580},
+    //   id: "4b53237ef964a520039027e3",
+    //   description: "One of my favourite coffee shop in Stuttgart. "
+    // },
+    // { title: 'Pukkis Thailändischer Lieferservice',
+    //   location: {lat: 48.772642, lng: 9.183031},
+    //   id: "5315c57c498ed34a02cade49",
+    //   description: "The food is great in this Thai restaurant, and the owner is nice too. "
+    // },
+    // { title: 'Tay Ho',
+    //   location: {lat: 48.774472, lng: 9.179051},
+    //   id: "4b7da6d7f964a52056cc2fe3",
+    //   description: "Very good deal of vietnamese food, my favourite vietnamese restaurant in Stuttgart. "
+    // },
+    // { title: 'Die Metzgerei',
+    //   location: {lat: 48.774247, lng: 9.155906},
+    //   id: "576c3580498e6dab9fac53ba",
+    //   description: "They have very nice environment, and they also have very delicious bagels. "
+    // },
+    // { title: 'Konditorei Patisserie Meister Lampe',
+    //   location: {lat: 48.774668, lng: 9.149445},
+    //   id: "50b62b49e4b033ea1fcbd45e",
+    //   description: "My favourite Japanese cake shop in Stuttgart! They sell the best cake in Stuttgart! "
+    // },
     // { title: 'ABACCOS STEAKHOUSE Stuttgart',
     //   location: {lat: 48.774607, lng: 9.173051},
     //   id: "561fdb70498e757ef8bc062a",

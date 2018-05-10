@@ -1,3 +1,6 @@
+/*jshint esversion: 6 */
+/*global google, styles, makeMarkerIcon, restaurants, $, toggleBounce, populateInfoWindow, ko*/
+
 let map;
 let markers = [];
 let defaultIcon, highlightIcon;
