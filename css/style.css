@@ -70,11 +70,32 @@ html, body {
   overflow-y: scroll;
 }
 /* Display the bar only when screen is large enough. */
-@media only screen and (max-device-width: 768px) {
+@media only screen and (max-width: 280px) {
   .modal.left .modal-content {
-    height: 100%;
-    width: 150px;
-    overflow-y: scroll;
+    width: 0px;
+    font-size: x-small;
+  }
+  .header {
+    font-size: x-small;
+  }
+}
+@media only screen and (min-width: 281px) and (max-width: 380px) {
+  .modal.left .modal-content {
+    width: 100px;
+    font-size: x-small;
+  }
+  .header, .mh1 {
+    font-size: x-small;
+  }
+}
+@media only screen and (min-width: 381px) and (max-width: 600px) {
+  .modal.left .modal-content {
+    width: 130px;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+  .modal.left .modal-content {
+    width: 160px;
   }
 }
 .modal.left .modal-body {
