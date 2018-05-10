@@ -11,7 +11,12 @@ let largeInfowindow;
 // Error handling for goolge map.
 // https://developers.google.com/maps/documentation/javascript/events#auth-errors
 function gm_authFailure() {
-    alert("Google map  error. Try to reload the page. If you download my example, don't forget to use your own google maps api keys. ");
+    alert("Google map error. Try to reload the page. If you download my example, don't forget to use your own google maps api keys. ");
+}
+
+function errorHandling() {
+    console.log('Google maps api error');
+    alert('Sorry we just disconnect to our google maps, try to reload the page. ');
 }
 
 function initMap() {
@@ -49,8 +54,8 @@ function initMap() {
         markers.push(marker);
 
         let content;
-        let Foursquare_CLIENT_ID = '&client_id=DBHFVI1EEVJ1SIMQ0M0QZJRXCUVDWE3FEHGRJPLWX2K45OQU';
-        let Foursquare_CLIENT_SECRET = '&client_secret=LSFMOKIMDNV3SN1V5DPGMZQTNPDB4QQKOY24FACZYAUI3LIR';
+        let Foursquare_CLIENT_ID = '&client_id=QTLWAELP5HATQ5S1P3OSVKXBXLJZ0UCGI1QXFN35GJFUUXLM';
+        let Foursquare_CLIENT_SECRET = '&client_secret=UAMIKPK3GQO5KXGQBE5YIPKSZAKC5WOZN32WJMUZGYXJGRDU';
 
         // AJAX call to the foursquare api.
         $.ajax({
